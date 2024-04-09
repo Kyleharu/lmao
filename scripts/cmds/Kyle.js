@@ -1,8 +1,8 @@
 module.exports = {
     config: {
-        name: "jay",
+        name: "Kyle",
         version: "1.0",
-        author: "Jay Senpai",
+        author: "Kyle Senpai",
         countDown: 5,
         role: 0,
         shortDescription: "sarcasm",
@@ -16,10 +16,10 @@ module.exports = {
         getLang
     }) {
         const lowerCaseBody = event.body.toLowerCase();
-        if (lowerCaseBody.includes("jay") || lowerCaseBody.includes("jay d bohol") ||
-lowerCaseBody.includes("bohol") ||
-lowerCaseBody.includes("Jay D Bohol")) {
-            return message.reply(`busy pa master ko`);
+        if (lowerCaseBody.includes("kyle") || lowerCaseBody.includes("kyle Bait-it") ||
+lowerCaseBody.includes("Kyle") ||
+lowerCaseBody.includes("@Kyle Bait-it")) {
+            return message.reply(`kaylangan mo sa master ko?`);
         }
     }
 };
