@@ -38,8 +38,7 @@ module.exports = {
       confirmThisThread: "Please react to this message to confirm the prefix change for your chat box",
       successGlobal: "The prefix of the bot system has been changed to: %1",
       successThisThread: "The prefix of your chat box has been changed to: %1",
-      myPrefix: "━━━━━━༺༻ ━━━━━━\n🌐 Bot System Prefix: %1\nYour Chat Box Prefix: %2\n\nPhilippines Timezone: %3",
-      philippinesTimezone: "🇵🇭 Philippines Timezone: GMT+8\n\n𝗢𝗪𝗡𝗘𝗥: 𝖪𝖸𝖫𝖤 𝖡𝖠𝖨𝖳-𝖨𝖳 ツ\n━━━━━━༺༻ ━━━━━━"
+      myPrefix: "━━━━━━༺༻ ━━━━━━\n🌐 Bot System Prefix: %1\nYour Chat Box Prefix: %2\n\n📆|⏰𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘: %3\n\n𝗢𝗪𝗡𝗘𝗥: 𝖪𝖸𝖫𝖤 𝖡𝖠𝖨𝖳-𝖨𝖳 ツ\n━━━━━━༺༻ ━━━━━━"
     },
     en: {
       reset: "Your prefix has been reset to default: %1",
