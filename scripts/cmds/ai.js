@@ -29,7 +29,7 @@ module.exports = {
       const prompt = event.body.substring(prefix.length).trim();
 
       if (!prompt) {
-        const defaultMessage = getCenteredHeader("𝗞𝗬𝗨𝗦𝗛𝗨 ツ") + "\n" + horizontalLine + "\nProvide a Question\n" + horizontalLine;
+        const defaultMessage = getCenteredHeader("𝗔𝗥𝗧𝗜𝗙𝗜𝗖𝗜𝗔𝗟 𝗜𝗡𝗧𝗘𝗟𝗟𝗜𝗚𝗘𝗡𝗖𝗘 ツ") + "\n" + horizontalLine + "\nProvide a Question\n" + horizontalLine;
         await message.reply(defaultMessage);
         return;
       }
