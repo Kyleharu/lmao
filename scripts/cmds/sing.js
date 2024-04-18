@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    name: "song",
+    name: "sing",
     version: "1.0",
     author: "Samir Œ",
     countDown: 5,
@@ -26,7 +26,7 @@ module.exports = {
     const song = data.join(" ");
 
     try {
-      let Send = await api.sendMessage(`🕰 | Searching for your song...`, event.threadID);
+      let Send = await api.sendMessage(`⏱️ Searching for your song...`, event.threadID);
 
       const searchResults = await yts(song);
       if (!searchResults.videos.length) {
@@ -61,7 +61,7 @@ module.exports = {
         }
 
         const message = {
-          body: `🎧| Title: ${video.title}\n🎤| Artist/Studio: ${video.author.name}`,
+          body: `┏━━━━━━━━━━━━━𝄞\n🎧| Title: ${video.title}\n🎤| Artist/Studio: ${video.author.name}\n┗━━━━━━━━━━━━━𝄞`,
           attachment: fs.createReadStream(filePath)
         };
 
