@@ -52,8 +52,8 @@ mentions: __
 }
 module.exports = {
 config: {
- name: "kibot",
-aliases: ['ai','k'],
+ name: "ia",
+aliases: [],
 version: 1.6,
 author: "Jun",
 role: 0,
