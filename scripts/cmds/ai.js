@@ -37,7 +37,7 @@ module.exports = {
       const answer = await getGPTResponse(prompt);
 
       // Adding header and horizontal lines to the answer
-      const answerWithHeader = getCenteredHeader("𝗞𝘆𝗹𝗲 𝗔𝗜ツ") + "\n" + horizontalLine + "\n" + answer + "\n" + horizontalLine;
+      const answerWithHeader = getCenteredHeader("𝗝𝗢𝗛𝗡 𝗗𝗘𝗥𝗘𝗖𝗞 𝗔𝗜ツ") + "\n" + horizontalLine + "\n" + answer + "\n" + horizontalLine;
       
       await message.reply(answerWithHeader);
     } catch (error) {
