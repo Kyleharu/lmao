@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `╔══════════════╗\n     𒁎𝗞𝗜𝗕𝗢𝗧 𝗖𝗠𝗗𝗦𒈓\n╚══════════════╝`;
+      msg += `╔══════════════╗\n   𝗗𝗥𝗘𝗬 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧 \n╚══════════════╝`;
 
       for (const [name, value] of commands) {
           if (value.config.role > 1 && role < value.config.role) continue;
