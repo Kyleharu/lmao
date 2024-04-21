@@ -1,85 +1,81 @@
-
 const axios = require("axios");
 
 module.exports = {
-  config: {
-    name: 'sim',
-    version: '1.2',
-    author: 'KENLIEPLAYS',
-    countDown: 0,
-    role: 0,
-    shortDescription: 'Simsimi ChatBot by Simsimi.fun',
-    longDescription: {
-      en: 'Chat with Simsimi',
-      ph: 'Kausapin si Simsimi'
-    },
-    category: 'sim',
-    guide: {
-      en: '   {pn} -sim <word>: chat with Simsimi'
-        + '\n   Example: {pn} -sim hi',
-      ph: '   {pn} -sim <salita>: makipag-chat kay Simsimi'
-        + '\n   Halimbawa: {pn} -sim kamusta'
-    }
-  },
-
-  langs: {
-    en: {
-      chatting: 'Already chatting with Sim...',
-      error: 'What?'
-    },
-    ph: {
-      chatting: 'Kasalukuyang kausap si Sim...',
-      error: 'Ano?'
-    }
-  },
-
-  onStart: async function ({ args, message, event, getLang }) {
-    if (args[0] === '-sim' && args[1]) {
-      const userLangCode = this.detectLanguage(args.slice(2));
-      const yourMessage = args.slice(2).join(" ");
-      
-      try {
-        const responseMessage = await this.getMessage(yourMessage, userLangCode);
-        return message.reply(responseMessage);
-      } catch (err) {
-        console.error('Error during onStart:', err);
-        return message.reply(getLang("error"));
-      }
-    }
-  },
-
-  onChat: async function ({ args, message, event, getLang }) {
-    if (args[0] === '-sim' && args.length > 1) {
-      const userLangCode = this.detectLanguage(args.slice(1));
-      
-      try {
-        const responseMessage = await this.getMessage(args.slice(1).join(" "), userLangCode);
-        return message.reply(responseMessage);
-      } catch (err) {
-        console.error('Error during onChat:', err);
-        return message.reply(getLang("error"));
-      }
-    }
-  },
-
-  detectLanguage: function (words) {
-    // Implement language detection logic here
-    // For flexibility, you can use a language detection library like franc.js
-    // For simplicity, let's assume the first word starting with '-' is in English, else Filipino
-    const firstWord = words.find(word => word.startsWith('-')) || '';
-    return firstWord.startsWith('-') ? 'en' : 'ph';
-  },
-
-  getMessage: async function (yourMessage, langCode) {
-    try {
-      const res = await axios.get(`https://simsimi.fun/api/v2/?mode=talk&lang=${langCode}&message=${yourMessage}&filter=true`);
-      if (!res.data.success) {
-        throw new Error('API returned a non-successful message');
-      }
-      return res.data.success;
-    } catch (err) {
-      console.error('Error while getting a message:', err);
-      throw err;
-    }
-  }
+ config: {
+ name: 'sim',
+ version: '1.2',
+ author: 'NIB | JARiF',
+ countDown: 5,
+ role: 0,
+ shortDescription: 'Sakura Ai',
+ longDescription: {
+ vi: 'Chat với sakura ♡',
+ en: 'Chat with sakura ♡'
+ },
+ category: 'Ai',
+ guide: {
+ vi: ' {pn} [on | off]: bật/tắt sakura ♡'
+ + '\'\n'
+ + '\ {pn} <word>: chat nhanh với sakura ♡'
+ + '\ Ví dụ:\ {pn} hi',
+ en: ' {pn} <word>: chat with sakura ♡'
+ + '\ Example:\ {pn} hi'
+ }
+ },
+ langs: {
+ vi: {
+ turnedOn: 'Bật simsimi thành công!',
+ turnedOff: 'Tắt simsimi thành công!',
+ chatting: 'Đang chat với simsimi...',
+ error: 'Simsimi đang bận, bạn hãy thử lại sau'
+ },
+ en: {
+ turnedOn: 'Turned on sakura ♡ successfully!',
+ turnedOff: 'Turned off sakura ♡ successfully!',
+ chatting: 'Already Chatting with sakura ♡...',
+ error: 'What?🙂'
+ }
+ },
+ onStart: async function ({ args, threadsData, message, event, getLang }) {
+ if (args[0] == 'on' || args[0] == 'off') {
+ await threadsData.set(event.threadID, args[0] == "on", "settings.simsimi");
+ return message.reply(args[0] == "on" ? getLang("turnedOn") : getLang("turnedOff"));
+ } else if (args[0]) {
+ const yourMessage = args.join(" ");
+ try {
+ const responseMessage = await getMessage(yourMessage);
+ return message.reply(`${responseMessage}`);
+ } catch (err) {
+ console.log(err);
+ return message.reply(getLang("error"));
+ }
+ }
+ },
+ onChat: async ({ args, message, threadsData, event, isUserCallCommand, getLang }) => {
+ if (args.length > 1 && !isUserCallCommand && (await threadsData.get(event.threadID, "settings.simsimi"))) {
+ try {
+ const langCode = (await threadsData.get(event.threadID, "settings.lang")) || global.GoatBot.config.language;
+ const responseMessage = await getMessage(args.join(" "), langCode);
+ return message.reply(`${responseMessage}`);
+ } catch (err) {
+ return message.reply(getLang("error"));
+ }
+ }
+ }
 };
+
+async function getMessage(yourMessage, langCode) {
+ const res = await axios.post(
+ 'https://api.simsimi.vn/v1/simtalk',
+ new URLSearchParams({
+ 'text': yourMessage,
+ 'lc': langCode || 'en'
+ })
+ );
+
+ if (res.status > 200) {
+ throw new Error(res.data.success);
+ }
+
+ return res.data.message;
+   }
