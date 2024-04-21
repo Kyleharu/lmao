@@ -16,12 +16,12 @@ config: {
   onStart: async function ({ api, event }) {
   try {
     const ownerInfo = {
-      name: 'Kyle Bait-it',
+      name: 'John Dereck Medrano Oboza',
       gender: 'Male',
-      age: '19',
+      age: '18',
       height: 'secret',
-      facebookLink: 'https://www.facebook.com/kyleyukaro',
-      nick: '𝗞𝗬𝗟𝗘 𝗦𝗘𝗡𝗣𝗔𝗜'
+      facebookLink: 'https://www.facebook.com/Johndereckmedranooboza',
+      nick: 'John Oboza'
     };
 
     const bold = 'https://i.imgur.com/DDO686J.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
