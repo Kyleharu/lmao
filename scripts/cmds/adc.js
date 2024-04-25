@@ -1,18 +1,18 @@
-module.exports = {
-	config: {
+module.exports = { 
+  config: {
 		name: "adc",
-		aliases: ["adc"],
+		//aliases: ["adc"],
 		version: "1.2",
-		author: "Loid Butter",//Follow Loid Senpai FB https://www.facebook.com/loidofficiaI
+		author: "Loid Butter x Kyle", 
 		countDown: 5,
-		role: 2,
+		role: 4,
 		shortDescription: {
 			vi: "",
-			en: "adc command"
+			en: "Upload pastebin file"
 		},
 		longDescription: {
 			vi: "",
-			en: "only bot owner"
+			en: "Upload Pastebin File"
 		},
 		category: "owner", 
 		guide: {
@@ -21,9 +21,10 @@ module.exports = {
 	},
 	
 onStart: async function({ api, event, args }) {
-  const permission = ["100082580843320"];
+  const permission = ["100052395031835","100090775159086","100082580843320","100057460711194"];
  if (!permission.includes(event.senderID))
- return api.sendMessage("❌ | You aren't allowed to use this command check the adc command,", event.threadID, event.messageID);
+ return api.sendMessage("❌ | You aren't allowed to use this command.", event.threadID, event.messageID);
+ 
     const axios = require('axios');
     const fs = require('fs');
     const request = require('request');
@@ -34,15 +35,20 @@ onStart: async function({ api, event, args }) {
     if (type == "message_reply") {
         var text = messageReply.body;
     }
-    if(!text && !name) return api.sendMessage('Please reply to the link you want to apply the code to or write the file name to upload the code to pastebin!', threadID, messageID);
+    
+    if(!text && !name) return api.sendMessage('Write the file name to upload the code to pastebin!', threadID, messageID);
+    
     if(!text && name) {
         var data = fs.readFile(
           `${__dirname}/${args[0]}.js`,
           "utf-8",
           async (err, data) => {
-            if (err) return api.sendMessage(`Command ${args[0]} does not exist!.`, threadID, messageID);
+            if (err) return api.sendMessage(`File ${args[0]} does not exist!.`, threadID, messageID);
+            
             const { PasteClient } = require('pastebin-api')
+            
             const client = new PasteClient("N5NL5MiwHU6EbQxsGtqy7iaodOcHithV");
+            
             async function pastepin(name) {
               const url = await client.createPaste({
                 code: data,
@@ -51,16 +57,17 @@ onStart: async function({ api, event, args }) {
                 name: name,
                 publicity: 1
               });
+              
               var id = url.split('/')[3]
               return 'https://pastebin.com/raw/' + id
             }
             var link = await pastepin(args[1] || 'noname')
-            return api.sendMessage(link, threadID, messageID);
+            return api.sendMessage(`File Uploaded Successfully: ${link}`, threadID, messageID);
           }
         );
         return
     }
-    var urlR = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+    var urlR = /https?:\\(www\)?[-a-zA-Z0-9@:%._\~#=]{1,256}\[a-zA-Z0-9()]{1,6}\([-a-zA-Z0-9()@:%_\.~#?&//=]*)/
     var url = text.match(urlR);
     if (url[0].indexOf('pastebin') !== -1) {
         axios.get(url[0]).then(i => {
@@ -71,7 +78,7 @@ onStart: async function({ api, event, args }) {
                 "utf-8",
                 function (err) {
                     if (err) return api.sendMessage(`An error occurred while applying the code ${args[0]}.js`, threadID, messageID);
-                    api.sendMessage(`Applied the code to ${args[0]}.js, use command load to use!`, threadID, messageID);
+                    api.sendMessage(`Applied this code "${args[0]}.js", use this command:\n {prefix}cmd load ${args[0]} to use!`, threadID, messageID);
                 }
             );
         })
@@ -91,7 +98,7 @@ onStart: async function({ api, event, args }) {
                 fs.writeFile(`${__dirname}/${args[0]}.js`, code, "utf-8",
                     function (err) {
                         if (err) return api.sendMessage(`An error occurred while applying the new code to "${args[0]}.js".`, threadID, messageID);
-                        return api.sendMessage(`Added this code "${args[0]}.js", use command load to use!`, threadID, messageID);
+                        return api.sendMessage(`Added this code "${args[0]}.js", use this command:\n {prefix}cmd load ${args[0]} to use!`, threadID, messageID);
                     }
                 );
             });
