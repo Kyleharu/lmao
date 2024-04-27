@@ -18,7 +18,7 @@ module.exports = {
         const lowerCaseBody = event.body.toLowerCase();
         if (lowerCaseBody.includes("John") || lowerCaseBody.includes("kyle Bait-it") ||
 lowerCaseBody.includes("john") ||
-lowerCaseBody.includes("@John Dereck Midrano Oboza")) {
+lowerCaseBody.includes("@John Dereck Medrano Oboza")) {
             return message.reply(`kaylangan mo sa master ko na pogi?`);
         }
     }
