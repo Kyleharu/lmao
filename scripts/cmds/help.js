@@ -43,7 +43,7 @@ module.exports = {
   langs: {
     en: {
       help: "𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕\n%1\n├─────⭔\n│ Page [ %2/%3 ]\n│ Currently, the bot has %4 commands that can be used\n│ » Type %5help <page> to view the command list\n│ » Type %5help to view the details of how to use that command \n🗓 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n├────────⭔\n│ %6\n╰─────────────⭓",
-      help2: "%1𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕\nCurrently, the bot has %2 commands that can be used\n» Type %3help <command name> to view the details of how to use that command\n» %4\n𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕\n\n✧ ▬▭▬ ▬▭▬ ✦✧✦ ▬▭▬ ▬▭▬ ✧\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n%4",
+      help2: "%1𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕\nCurrently, the bot has %2 commands that can be used\n» Type %3help <command name> to view the details of how to use that command\n» %4\n𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕\n\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n",
       commandNotFound: "დ Command \"%1\" does not exist",
       getInfoCommand: "𝄖𝄖𝄖⌜%1⌟𝄖𝄖𝄖⧕\n» Description: %2\n» Other names: %3\n» Other names in your group: %4\n» Version: %5\n» Role: %6\n» Time per command: %7s\n» Author: %8\n𝄖𝄖𝄖𝄖𝄖⌜Usage⌟𝄖𝄖𝄖𝄖𝄖⧕\nდ %9\n𝄖𝄖𝄖𝄖𝄖⌜Notes⌟𝄖𝄖𝄖𝄖𝄖⧕\n│ The content inside <XXXXX> can be changed\n│ The content inside [a|b|c] is a or b or c\n𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖𝄖⧕",
       onlyInfo: "𝄖𝄖𝄖𝄖𝄖𝄖⌜Info⌟𝄖𝄖𝄖𝄖𝄖𝄖⧕\n│ Command name: %1\n» Description: %2\n» Other names: %3\n» Other names in your group: %4\n» Version: %5\n» Role: %6\n» Time per command: %7s\n» Author: %8\n╰─────────────⭓",
@@ -79,7 +79,7 @@ module.exports = {
     // ———————————————— LIST ALL COMMAND ——————————————— //
     if (!command && !args[0] || !isNaN(args[0])) {
       const arrayInfo = [];
-      let msg = "𝗬𝗔𝗡𝗭𝗨 𝗔𝗜 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧\n✧ ▬▭▬ ▬▭▬ ✦✧✦ ▬▭▬ ▬▭▬ ✧";
+      let msg = "𝗬𝗔𝗡𝗭𝗨 𝗔𝗜 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧\n࿇ ══━━━━✥◈✥━━━━══ ࿇";
 
 
       for (const [, value] of commands) {
