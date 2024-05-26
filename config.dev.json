@@ -36,7 +36,6 @@
     "hideNotiMessage": true
   },
   "adminBot": [
-    "100082580843320",
     "100052395031835"
   ],
   "whiteListMode": {
@@ -49,8 +48,8 @@
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "𝗗𝗥𝗘𝗬 𝗕𝗢𝗧",
-  "prefix": ".",
+  "nickNameBot": "𝙔𝘼𝙉𝙕𝙐 𝘼𝙄",
+  "prefix": "×",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
