@@ -1,79 +1,74 @@
+
+const moment = require("moment-timezone");
+const manilaTime = moment.tz('Asia/Manila');
+const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
+
 const axios = require('axios');
 
-const Prefixes = [
-  'gpt',
-  'ai',
-  'What',
-  '=ai',
-];
+async function fetchFromAI(url, params) {
+ try {
+ const response = await axios.get(url, { params });
+ return response.data;
+ } catch (error) {
+ console.error(error);
+ return null;
+ }
+}
+
+async function getAIResponse(input, userId, messageID) {
+ const services = [
+ { url: 'https://ai-tools.replit.app/gpt', params: { prompt: input, uid: userId } },
+ { url: 'https://openaikey-x20f.onrender.com/api', params: { prompt: input } },
+ { url: 'http://fi1.bot-hosting.net:6518/gpt', params: { query: input } },
+ { url: 'https://ai-chat-gpt-4-lite.onrender.com/api/hercai', params: { question: input } }
+ ];
+
+ let response = "hello   how can i help you?";
+ let currentIndex = 0;
+
+ for (let i = 0; i < services.length; i++) {
+ const service = services[currentIndex];
+ const data = await fetchFromAI(service.url, service.params);
+ if (data && (data.gpt4 || data.reply || data.response)) {
+ response = data.gpt4 || data.reply || data.response;
+ break;
+ }
+ currentIndex = (currentIndex + 1) % services.length; // Move to the next service in the cycle
+ }
+
+ return { response, messageID };
+}
 
 module.exports = {
-  config: {
-    name: 'ai',
-    version: '2.5.4',
-    author: 'Kylepogi',//credits owner of this api
-    role: 0,
-    category: 'ai',
-    shortDescription: {
-      en: 'Asks an AI for an answer.',
-    },
-    longDescription: {
-      en: 'Asks an AI for an answer based on the user prompt.',
-    },
-    guide: {
-      en: '{pn} [prompt]',
-    },
-  },
+ config: {
+ name: 'ai',
+ author: 'Arn',
+ role: 0,
+ category: 'ai',
+ shortDescription: 'ai to ask anything',
+ },
+ onStart: async function ({ api, event, args }) {
+ const input = args.join(' ').trim();
+ if (!input) {
+ api.sendMessage(`𝙔𝙖𝙣𝙯𝙪 𝘼𝙄:\n
+━━━━━━━━━━━━━\nHow can i assist you? Nigga\n━━━━━━━━━━━━━\n`, event.threadID, event.messageID);
+ return;
+ }
 
-  langs: {
-    en: {
-      final: "𝘼𝙄 𝙉𝙂 𝙇𝘼𝙃𝘼𝙏𝙑2",
-      loading: "𝘼𝙍𝙏𝙄𝙁𝙄𝘾𝙄𝘼𝙇 𝙄𝙉𝙏𝙀𝙇𝙇𝙄𝙂𝙀𝙉𝘾𝙀 \n❍━━━━━━━━━━━━━━━━━━━━❏\n⏳ |        🕗 | 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗬𝗢𝗨𝗥 𝗤𝗨𝗘𝗦𝗧𝗜𝗢𝗡 𝗣𝗟𝗘𝗔𝗦𝗘 𝗪𝗔𝗜𝗧..........\n❍━━━━━━━━━━━━━━━━━━━━━❏\n"
-    }
-  },
+ const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
+ api.sendMessage(`𝙔𝘼𝙉𝙕𝙐 𝘼𝙄:\n
+━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━`, event.threadID, messageID);
+ },
+ onChat: async function ({ event, message }) {
+ const messageContent = event.body.trim().toLowerCase();
+ if (messageContent.startsWith("ai")) {
+ const input = messageContent.replace(/^ai\s*/, "").trim();
+ const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
+ message.reply(`
+ 
 
-  onStart: async function () {},
-
-  onChat: async function ({ api, event, args, getLang, message }) {
-    try {
-      const prefix = Prefixes.find((p) => event.body && event.body.toLowerCase().startsWith(p));
-
-      if (!prefix) {
-        return;
-      }
-
-      const prompt = event.body.substring(prefix.length).trim();
-
-      if (prompt === '') {
-
-        await message.reply(
-          "𝙝𝙚𝙡𝙡𝙤 𝙝𝙤𝙬 𝙘𝙖𝙣 𝙄 𝙝𝙚𝙡𝙥 𝙮𝙤𝙪? 𝙥𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙮𝙤𝙪𝙧 𝙦𝙪𝙚𝙨𝙩𝙞𝙤𝙣𝙨 𝙩𝙤 𝙧𝙚𝙨𝙥𝙤𝙣𝙙 𝙢𝙚. "  
-        );
-        
-        return;
-      }
-
-      const loadingMessage = getLang("loading");
-      const loadingReply = await message.reply(loadingMessage);
-      const url = "https://hercai.onrender.com/v3/hercai"; // Replace with the new API endpoint
-      const response = await axios.get(`${url}?question=${encodeURIComponent(prompt)}`);
-
-      if (response.status !== 200 || !response.data) {
-        throw new Error('Invalid or missing response from API');
-      }
-
-      const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
-      const userName = getLang("final");
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n${messageText}\n❍━━━━━━━━━━━━━━━━━━━━━❏\n`;
-      api.editMessage(finalMsg, loadingReply.messageID);
-
-      console.log('Sent answer as a reply to user');
-    } catch (error) {
-      console.error(`Failed to get answer: ${error.message}`);
-      api.sendMessage(
-        `${error.message}.\n\nYou can try typing your question again or resending it, as there might be a bug from the server that's causing the problem. It might resolve the issue.`,
-        event.threadID
-      );
-    }
-  },
+𝙔𝘼𝙉𝙕𝙐 𝘼𝙄:
+━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n𝗖𝗿𝗲𝗱𝗶𝘁𝘀:https://www.facebook.com/itssmekylebaitit`, messageID);
+ }
+ }
 };
