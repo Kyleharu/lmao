@@ -18,7 +18,6 @@
     "hideNotiMessage": true
   },
   "adminBot": [
-    "61557027725455", 
     "100052395031835"
   ],
   "whiteListMode": {
@@ -31,8 +30,8 @@
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "[ . ] ❃➢ 𝘿𝙀𝙍𝙀𝘾𝙆 𝘼𝙄",
-  "prefix": "!",
+  "nickNameBot": "[ × ] ❃➢ 𝗬𝗔𝗡𝗭𝗨𝗔𝗜𝗩𝟮",
+  "prefix": "×",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
