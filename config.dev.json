@@ -1,22 +1,4 @@
 {
-  "0": "U",
-  "1": "p",
-  "2": "d",
-  "3": "a",
-  "4": "t",
-  "5": "e",
-  "6": " ",
-  "7": "c",
-  "8": "o",
-  "9": "n",
-  "10": "f",
-  "11": "i",
-  "12": "g",
-  "13": ".",
-  "14": "j",
-  "15": "s",
-  "16": "o",
-  "17": "n",
   "facebookAccount": {
     "email": "",
     "password": "",
@@ -36,6 +18,7 @@
     "hideNotiMessage": true
   },
   "adminBot": [
+    "61557027725455", 
     "100052395031835"
   ],
   "whiteListMode": {
@@ -48,8 +31,8 @@
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "𝙔𝘼𝙉𝙕𝙐 𝘼𝙄",
-  "prefix": "×",
+  "nickNameBot": "𝙅𝙈 𝘽𝙊𝙏",
+  "prefix": ".",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
