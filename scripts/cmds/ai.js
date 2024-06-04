@@ -50,13 +50,13 @@ module.exports = {
  onStart: async function ({ api, event, args }) {
  const input = args.join(' ').trim();
  if (!input) {
- api.sendMessage(`𝙔𝙖𝙣𝙯𝙪 𝘼𝙄:\n
+ api.sendMessage(`𝙆𝘼𝙄𝙍𝙊 𝘼𝙄:\n
 ━━━━━━━━━━━━━\nHow can i assist you? Nigga\n━━━━━━━━━━━━━\n`, event.threadID, event.messageID);
  return;
  }
 
  const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
- api.sendMessage(`𝙔𝘼𝙉𝙕𝙐 𝘼𝙄:\n
+ api.sendMessage(`𝙆𝘼𝙄𝙍𝙊 𝘼𝙄:\n
 ━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━`, event.threadID, messageID);
  },
  onChat: async function ({ event, message }) {
