@@ -7,11 +7,11 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "𝗗𝗘𝗥𝗘𝗖𝗞 𝗔𝗜";
+const doNotDelete = "𝙆𝘼𝙄𝙍𝙊 𝙀𝘾𝙃Ø";
 
 module.exports = {
   config: {
-    name: "help10",
+    name: "help",
     version: "1.18",
     author: "KYLEPOGI",
     countDown: 5,
@@ -79,7 +79,7 @@ module.exports = {
     // ———————————————— LIST ALL COMMAND ——————————————— //
     if (!command && !args[0] || !isNaN(args[0])) {
       const arrayInfo = [];
-      let msg = "𝗝𝗠 𝗔𝗜 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧\n࿇ ══━━━━✥◈✥━━━━══ ࿇";
+      let msg = "𝗞𝗔𝗜𝗥𝗢𝗖𝗠𝗗 𝗟𝗜𝗦𝗧\n࿇ ══━━━━✥◈✥━━━━══ ࿇";
 
 
       for (const [, value] of commands) {
