@@ -26,10 +26,10 @@ module.exports = {
 			session2: "noon",
 			session3: "afternoon",
 			session4: "evening",
-			welcomeMessage: "🔴🟠🟡🟢\nBOT CONNECTED SUCCESSFULLY!!\n═════════•°•⚠️•°•═════════\nThank you for inviting me to the group!\nBot prefix: %1\nTo view the list of commands, please enter: %1help\n𝗢𝗪𝗡𝗘𝗥: https://www.facebook.com/Johndereckmedranooboza\n DONT FORGET TO FOLLOW/ADD MY OWNER\n═════════•°•⚠️•°•═════════",
+			welcomeMessage: "🔴🟠🟢\n\nBOT CONNECTED SUCCESSFULLY!!\n═════════•°•⚠️•°•═════════\nThank you for inviting me to the group!\nBot prefix: %1\nTo view the list of commands, please enter: %1help\n═════════•°•⚠️•°•═════════",
 			multiple1: "you",
 			multiple2: "you guys",
-			defaultWelcomeMessage: `🔴🟠🟡🟢\n\n╔══════✮❁•°♛°•❁✮ ═════╗\n  𝗛𝗘𝗟𝗟𝗢 𝗡𝗜𝗚𝗚𝗔 {userName}.\𝗇\n  𝗪𝗘𝗟𝗖𝗢𝗠𝗘 {multiple} 𝗧𝗢 𝗧𝗛𝗘 𝗖𝗛𝗔𝗧 𝗚𝗥𝗢𝗨𝗣: {boxName}\n  Have a nice {session} 😊\n╚══════✮❁•°❀°•❁✮══════╝`
+			defaultWelcomeMessage: `🔴🟠🟡🟢\n\n  𝗛𝗘𝗟𝗟𝗢 𝗡𝗜𝗚𝗚𝗔 {userName}.\𝗇\n  𝗪𝗘𝗟𝗖𝗢𝗠𝗘 {multiple} 𝗧𝗢 𝗧𝗛𝗘 𝗖𝗛𝗔𝗧 𝗚𝗥𝗢𝗨𝗣: {boxName}\n  Have a nice {session} 😊\n`
 		}
 	},
 
