@@ -50,13 +50,13 @@ module.exports = {
  onStart: async function ({ api, event, args }) {
  const input = args.join(' ').trim();
  if (!input) {
- api.sendMessage(`𝙆𝘼𝙄𝙍𝙊 𝘼𝙄:\n
+ api.sendMessage(`𝙅𝙈 𝘼𝙄:\n
 ━━━━━━━━━━━━━\nHow can i assist you? Nigga\n━━━━━━━━━━━━━\n`, event.threadID, event.messageID);
  return;
  }
 
  const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
- api.sendMessage(`𝙆𝘼𝙄𝙍𝙊 𝘼𝙄:\n
+ api.sendMessage(`𝙅𝙈 𝘼𝙄:\n
 ━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━`, event.threadID, messageID);
  },
  onChat: async function ({ event, message }) {
@@ -67,8 +67,8 @@ module.exports = {
  message.reply(`
  
 
-𝙔𝘼𝙉𝙕𝙐 𝘼𝙄:
-━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n𝗖𝗿𝗲𝗱𝗶𝘁𝘀:https://www.facebook.com/itssmekylebaitit`, messageID);
+𝙅𝙈 𝘼𝙄 [🤖]:
+━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n\n𝗖𝗿𝗲𝗱𝗶𝘁𝘀:https://www.facebook.com/itssmekylebaitit`, messageID);
  }
  }
 };
