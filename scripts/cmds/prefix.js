@@ -38,7 +38,7 @@ module.exports = {
       confirmThisThread: "Please react to this message to confirm the prefix change for your chat box",
       successGlobal: "The prefix of the bot system has been changed to: %1",
       successThisThread: "The prefix of your chat box has been changed to: %1",
-      myPrefix: "━━━━━━༺༻ ━━━━━━\n🌐 Bot System Prefix: %1\nYour Chat Box Prefix: %2\n\n📆|⏰𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘: %3\n\n𝗢𝗪𝗡𝗘𝗥: 𝖪𝖸𝖫𝖤 𝖡𝖠𝖨𝖳-𝖨𝖳 ツ\n━━━━━━༺༻ ━━━━━━"
+      myPrefix: "𝑯𝑬𝒀 𝑰 𝑨𝑴 𝑱𝑴 𝑩𝑶𝑻 𝑴𝒀 𝑷𝑹𝑬𝑭𝑰𝑿???\n\n🌐 Bot System Prefix: %1\nYour Chat Box Prefix: %2\n\n📆|⏰𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘: %3\n\n𝗢𝗪𝗡𝗘𝗥: 𝘋𝘌𝘙𝘌𝘊𝘒 𝘖𝘉𝘖𝘡𝘈ツ\n\n𝗕𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗢𝗥: 𝘒𝘠𝘓𝘌 𝘉𝘈𝘐𝘛-𝘐𝘛"
     },
     en: {
       reset: "Your prefix has been reset to default: %1",
@@ -47,7 +47,7 @@ module.exports = {
       confirmThisThread: "Please react to this message to confirm the prefix change for your chat box",
       successGlobal: "The prefix of the bot system has been changed to: %1",
       successThisThread: "The prefix of your chat box has been changed to: %1",
-      myPrefix: "\n\n━━━━━━༺༻ ━━━━━━\n[ 𝗬𝗔𝗡𝗭𝗨 𝗔𝗜 ] \n\n⚙️ 𝗕𝗼𝘁 𝗦𝘆𝘀𝘁𝗲𝗺 𝗣𝗿𝗲𝗳𝗶𝘅: [ %1 ]\n💬𝗬𝗼𝘂𝗿 𝗖𝗵𝗮𝘁 𝗕𝗼𝘅 𝗣𝗿𝗲𝗳𝗶𝘅: [ %2 ]\n\n╭──────༺♡༻──────╮\n 📆|⏰𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘:\n %3\n━━━━━━━━━━━━━━━━\n📌 𝗛𝗢𝗪  𝗧𝗢 𝗨𝗦𝗘𝗗⁉️\n  1: %2help\n  2: %2draw\n  3: %2sing\n  4: %2info\n  5: %2callad - to call admins.\n╰──────༺♡༻──────╯\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥: 𝖪𝖸𝖫𝖤 𝖡𝖠𝖨𝖳-𝖨𝖳\n𝗙𝗕: https://www.facebook.com/itssmekylebaitit\n━━━━━━༺༻ ━━━━━━"
+      myPrefix: "\n𝑯𝑬𝒀 𝑰 𝑨𝑴 𝑱𝑴 𝑩𝑶𝑻 𝑴𝒀 𝑷𝑹𝑬𝑭𝑰𝑿???\n\n\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥: 𝘋𝘌𝘙𝘌𝘊𝘒 𝘖𝘉𝘖𝘡𝘈ツ\n\n𝗕𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗢𝗥: 𝘒𝘠𝘓𝘌 𝘉𝘈𝘐𝘛-𝘐𝘛\n\n⚙️ 𝗕𝗼𝘁 𝗦𝘆𝘀𝘁𝗲𝗺 𝗣𝗿𝗲𝗳𝗶𝘅: [ %1 ]\n💬𝗬𝗼𝘂𝗿 𝗖𝗵𝗮𝘁 𝗕𝗼𝘅 𝗣𝗿𝗲𝗳𝗶𝘅: [ %2 ]\n\n\n 📆|⏰𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘:\n %3\n"
     }
   },
 
